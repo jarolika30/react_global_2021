@@ -1,0 +1,47 @@
+.modal-confirmation {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background:rgba(17, 16, 16, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.modal-confirm {
+  position: relative;
+  width: 50%;
+  background: #232323;
+  border-radius: 5px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.45), 0 10px 10px rgba(0,0,0,0.40);
+  color: white;
+  height: 240px;
+  box-sizing: border-box;
+}
+
+.modal-close-sign {
+  font-size: 25px;
+  margin-right: 2px;
+}
+
+.modal-text {
+  font-size: 20px;
+}
+
+.confirm-btn {
+  height: 30px;
+  width: 100px;
+  background: #f65261;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-top: 40px;
+}

@@ -1,0 +1,115 @@
+.modal-edit {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background:rgba(17, 16, 16, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.modal-edit-wrap {
+  position: relative;
+  width: 40%;
+  background: #232323;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.45), 0 10px 10px rgba(0,0,0,0.40);
+}
+
+.edit-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-close-sign {
+  font-size: 25px;
+  margin-right: 2px;
+  cursor: pointer;
+}
+
+.edit-body {
+  padding: 0 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.edit-body h2 {
+  text-align: left;
+}
+
+.edit-body label {
+  color: #f65261;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.edit-input {
+  background: #424242;
+  margin-right: 10px;
+  padding: 5px 10px;
+  width: 400px;
+  color: #d8d7d7;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-input:disabled {
+  background: #2b2a2a;
+  cursor: default;
+}
+
+.edit-input:focus {
+  outline: none;
+}
+
+.filter-select {
+  color: #ffffff;
+  text-transform: uppercase;
+  background: #424242;
+}
+
+.edit-submit-btn {
+  height: 30px;
+  width: 100px;
+  background: #f65261;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+.edit-reset-btn {
+  height: 30px;
+  width: 100px;
+  color: #f65261;
+  font-size: 18px;
+  border: 1px solid #f65261;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-top: 20px;
+  background: transparent;
+  margin-right: 10px;
+}
+
+.edit-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}

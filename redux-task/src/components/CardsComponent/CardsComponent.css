@@ -1,0 +1,18 @@
+.cards-container {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.cards-total {
+  width: 100%;
+  text-align: left;
+  color: #c0c0c0;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.cards-total > span {
+  font-weight: bold;
+}
+

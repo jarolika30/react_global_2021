@@ -1,0 +1,23 @@
+.app {
+  display:flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #424242;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.app-title {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.content {
+  flex: 1 0 auto;
+  background: #424242;
+}
