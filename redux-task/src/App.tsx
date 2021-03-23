@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Provider, useDispatch } from 'react-redux';
 import Header from './containers/Header';
 import Footer from './containers/Footer';
 import MainContainer from './containers/MainContainer';
 import { CardInfo } from '../mocksData/cardsInfo';
+import MovieContainer from './containers/MovieContainer';
 import { InitialMovie } from '../mocksData/initialMovie';
+import { getAllMovies } from './actions';
+import { configureStore } from './store/store';
 import './App.css';
 
-export default function App() {
-  const [activeMovie, setActiveMovie] = useState(InitialMovie);
+const store = configureStore();
 
+export default function App() {
   return (
-    <div className="app">
-      <Header activeFilm={activeMovie} handleClickMovie={setActiveMovie} />
-      <div className="content">
-        <MainContainer films={CardInfo} handleClickMovie={setActiveMovie} activeFilm={activeMovie} />
-      </div>
-      <Footer/>
-    </div>
+    <Provider store={store}>
+      <MovieContainer />
+    </Provider>
   );
 }
 
