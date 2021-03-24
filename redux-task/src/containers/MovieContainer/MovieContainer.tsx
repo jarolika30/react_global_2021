@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Header';
 import Footer from '../Footer';
 import MainContainer from '../MainContainer';
-import { CardInfo } from '../../../mocksData/cardsInfo';
 import { InitialMovie } from '../../../mocksData/initialMovie';
 import { getAllMovies } from '../../actions';
 import { getAllMoviesSelector } from '../../selectors/get-all-movie.selector';

@@ -1,11 +1,16 @@
 import React, { useState, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Modal from '../Modal';
 import DeleteModal from '../DeleteModal';
 import EditModal from '../EditModal';
+import { SUCCESS_STATUS_CODE } from '../../../mocksData/constants';
+import { deleteMovie } from '../../actions/delete-movie';
+import { getAllMovies } from '../../actions/get-all-movies.action';
 import './Card.scss';
 
 export default function Card(props) {
+  const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -48,6 +53,13 @@ export default function Card(props) {
 
   const handleConfirm = (event) => {
     event.preventDefault();
+
+    deleteMovie(film.id).then(res => {
+      if (res === SUCCESS_STATUS_CODE) {
+        dispatch(getAllMovies());
+      }
+    });  
+
     setShowDeleteModal(false);
   }
 
