@@ -1,4 +1,7 @@
 .modal {
+  position: absolute;
+  top: 5px;
+  right: 5px;
   width: 230px;
   height: 86px;
   background: #232323;

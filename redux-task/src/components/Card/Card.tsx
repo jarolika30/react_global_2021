@@ -10,7 +10,7 @@ export default function Card(props) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
 
-  const { id, title, year, description, ganre, img, rating, duration, activeFilm } = props;
+  const { film, activeFilm } = props;
 
   const handleAction = (action) => (
     event
@@ -57,22 +57,22 @@ export default function Card(props) {
   }
 
   const movie = {
-    id,
-    title,
-    year,
-    ganre,
-    img,
-    rating,
-    duration,
-    description
+    id: film.id,
+    title: film.title,
+    year: new Date(film.release_date).getFullYear(),
+    ganre: film.genres.join(', '),
+    img: film.poster_path,
+    rating: film.vote_average,
+    duration: film.runtime,
+    description: film.overview
   }
 
   const makeActiveMovie = useCallback(() => {
     const editModal = showDeleteModal || showEditModal;
     const isModalOpen = showModal || editModal;
 
-      if (!isModalOpen && movie.id !== activeFilm.id) {
-        props.handleClickMovie(movie);
+      if (!isModalOpen && film.id !== activeFilm.id) {
+        props.handleClickMovie(film);
       }
     }, [movie]);
 
@@ -84,6 +84,7 @@ export default function Card(props) {
         <div className="circle"></div>
       </div>
       <div className="card-img" onClick={makeActiveMovie}>
+          <img src={film.poster_path} alt={film.title} />
           <Modal 
             show={showModal} 
             onClose={onClose}
@@ -91,25 +92,18 @@ export default function Card(props) {
           />
       </div>
       <div className="card-info">
-        <h3 className="title">{title}</h3>
-        <span className="year">{year}</span>
-        <span className="ganre">{ganre}</span>
+        <h3 className="title">{movie.title}</h3>
+        <span className="year">{movie.year}</span>
+        <span className="ganre">{movie.ganre}</span>
       </div>
       <DeleteModal show={showDeleteModal} onClose={onCloseDeleteModal} handleConfirm={handleConfirm} />
-      <EditModal show={showEditModal} onClose={onCloseEditModal} handleConfirm={handleEditConfirm} mode={true} movie={movie} />
+      <EditModal show={showEditModal} onClose={onCloseEditModal} handleConfirm={handleEditConfirm} mode={true} movie={film} />
     </div>
   )
 }
 
 Card.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired,
-  ganre: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  rating: PropTypes.string.isRequired,
-  duration: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  film: PropTypes.object.isRequired,
   handleClickMovie: PropTypes.func.isRequired,
   activeFilm: PropTypes.object.isRequired
 }

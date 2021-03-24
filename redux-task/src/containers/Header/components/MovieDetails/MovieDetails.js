@@ -16,19 +16,19 @@ export default function MovieDetails(props) {
       </div>
       <div className="body-details">
         <div className="film-img">
-          <img src={film.img} alt={film.title} />
+          <img src={film.poster_path} alt={film.title} />
         </div>
         <div className="film-info">
           <div className="film-info-title">
             <span>{film.title}</span>
-            <div className="film-rating">{film.rating}</div>
+            <div className="film-rating">{film.vote_average}</div>
           </div>
           <div>
-            <span className="film-year">{film.year}</span>
-            <span className="film-duration">{`${film.duration} min`}</span>
+            <span className="film-year">{new Date(film.release_date).getFullYear()}</span>
+            <span className="film-duration">{`${film.runtime} min`}</span>
           </div>
           <div className="film-description">
-            <p>{film.description}</p>
+            <p>{film.overview}</p>
           </div>
         </div>
       </div>

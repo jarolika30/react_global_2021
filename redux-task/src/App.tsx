@@ -1,14 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Provider, useDispatch } from 'react-redux';
-import Header from './containers/Header';
-import Footer from './containers/Footer';
-import MainContainer from './containers/MainContainer';
-import { CardInfo } from '../mocksData/cardsInfo';
+import React from 'react';
+import { Provider } from 'react-redux';
 import MovieContainer from './containers/MovieContainer';
-import { InitialMovie } from '../mocksData/initialMovie';
-import { getAllMovies } from './actions';
 import { configureStore } from './store/store';
-import './App.css';
 
 const store = configureStore();
 

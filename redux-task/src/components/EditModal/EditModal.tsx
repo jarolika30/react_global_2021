@@ -41,7 +41,7 @@ export default function EditModal(props) {
             className="edit-input"
             id='release-date'
             type='date'
-            value={currentMovie.year}
+            value={new Date(currentMovie.release_date).getFullYear()}
             placeholder='Select Date'
           />
           <label htmlFor="movie-url">Movie URL</label>

@@ -15,7 +15,7 @@ export default function CardsComponent(props) {
         </div>
       </div>
       {
-        films.map(el => <Card key={el.id} handleClickMovie={props.handleClickMovie} activeFilm={activeFilm} {...el} />)
+        films.map(el => <Card key={el.id} handleClickMovie={props.handleClickMovie} activeFilm={activeFilm} film={el} />)
       }
     </div>
   )
