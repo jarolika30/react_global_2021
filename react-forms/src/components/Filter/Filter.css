@@ -1,0 +1,52 @@
+.sort-wrap {
+  display: flex;
+}
+
+.filter-select {
+  display: flex;
+  min-width: 133px;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  background: #424242;
+  border: none;
+  cursor: pointer;
+  border: 1px solid #555555;
+}
+
+.filter-select-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  background: #424242;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+}
+
+.filter-select:focus,
+.filter-select-btn {
+  outline: none;
+}
+
+.filter-select-btn:hover {
+  background: #f65261;
+}
+
+.filter-wrap {
+  position: relative;
+  min-width: 133px;
+}
+
+.input-select {
+  display: flex;
+  flex-direction: column;
+}
+
+.options-wrap {
+  position: absolute;
+  width: 100%;
+}

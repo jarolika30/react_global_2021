@@ -1,0 +1,36 @@
+.main-container {
+  width: 1220px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.main-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #232323;
+  box-sizing: border-box;
+}
+
+.nav-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid #555555;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-block {
+  display: flex;
+  color: #555555;
+}
+
+.filter-block > span {
+  margin-right: 7px;
+}

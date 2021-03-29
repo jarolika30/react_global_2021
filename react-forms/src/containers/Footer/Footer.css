@@ -1,0 +1,21 @@
+.footer {
+  width: 1220px;
+  padding: 0 10px;
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #f65261;
+  box-sizing: border-box;
+}
+
+.footer-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #424242;
+  box-sizing: border-box;
+}
+
