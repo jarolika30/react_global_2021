@@ -1,9 +1,12 @@
 import { createAction } from 'redux-actions';
 import { Dispatch } from 'redux';
-import { apiHost } from '../../mocksData/constants';
+import { apiHost, SUCCESS_CREATED_CODE, SUCCESS_STATUS_CODE } from '../../mocksData/constants';
+import { IMovie } from '../selectors/interfaces/IMovie';
 
 export const getAllMovieAction = createAction('GET_ALL_MOVIE');
 export const deleteMovieAction = createAction('DELETE_MOVIE');
+export const createMovieAction = createAction('CREATE_MOVIE');
+export const updateMovieAction = createAction('UPDATE_MOVIE');
 
 export const getAllMovies = () => (dispatch: Dispatch) => {
   const url = 'movies';
@@ -20,7 +23,7 @@ export const getAllMovies = () => (dispatch: Dispatch) => {
     });
 }
 
-export const deleteMovie = (id: string) => (dispatch: Dispatch) => {
+export const deleteMovie = (id: number) => (dispatch: Dispatch) => {
   const url = `movies/${id}`;
 
   fetch(`${apiHost}/${url}`,
@@ -32,4 +35,38 @@ export const deleteMovie = (id: string) => (dispatch: Dispatch) => {
     })
     .catch(error => error);
 };
+
+export const createMovie = (movie: any) => (dispatch: Dispatch) => {
+  fetch(`${apiHost}/movies`,
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    },
+    body: JSON.stringify(movie)
+  })
+    .then(res => {
+      if (res.status === SUCCESS_CREATED_CODE) return res.json();
+    })
+    .then(data => {
+      if (data) dispatch(createMovieAction(data));
+    })
+    .catch(error => error);
+}
+
+export const updateMovie = (movie: IMovie) => (dispatch: Dispatch) => {
+  fetch(`${apiHost}/movies`,
+  {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    },
+    body: JSON.stringify(movie)
+  })
+    .then(res => {
+      console.log('res:', res);
+      if (res.status === SUCCESS_STATUS_CODE) dispatch(updateMovieAction(movie.id)); 
+    })
+    .catch(error => error);
+}
 

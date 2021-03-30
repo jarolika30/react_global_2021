@@ -1,13 +1,13 @@
 import { IMovie } from '../selectors/interfaces/IMovie';
 
 interface IFilm {
-  id: string;
+  id: number;
   title: string;
   year: number,
   ganre: string;
   img: string;
-  rating: string;
-  duration: string;
+  rating: number;
+  duration: number;
   description: string;
 }
 

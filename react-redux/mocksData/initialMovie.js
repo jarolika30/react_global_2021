@@ -1,14 +1,14 @@
 exports.InitialMovie = {
-  id: '',
+  id: null,
   title: '', 
   tagline: '',
   release_date: '',
   genres: [],
   poster_path: '',
-  vote_average: '',
-  vote_count: '',
-  runtime: '',
+  vote_average: null,
+  vote_count: null,
+  runtime: null,
   overview: '',
-  budget: '',
-  revenue: ''
+  budget: null,
+  revenue: null
 }

@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import Modal from '../Modal';
 import DeleteModal from '../DeleteModal';
 import EditModal from '../EditModal';
-import { deleteMovie } from '../../actions';
-import { getAllMovies } from '../../actions/get-all-movies.action';
+import { deleteMovie, updateMovie } from '../../actions';
 import './Card.scss';
 
 export default function Card(props) {
@@ -58,6 +57,7 @@ export default function Card(props) {
 
   const handleEditConfirm = (event) => {
     event.preventDefault();
+    dispatch(updateMovie(film));
     setShowEditModal(false);
   }
 
@@ -102,7 +102,7 @@ export default function Card(props) {
         <span className="ganre">{movie.ganre}</span>
       </div>
       <DeleteModal show={showDeleteModal} onClose={onCloseDeleteModal} handleConfirm={handleConfirm} />
-      <EditModal show={showEditModal} onClose={onCloseEditModal} handleConfirm={handleEditConfirm} mode={true} movie={film} />
+      <EditModal show={showEditModal} onClose={onCloseEditModal} handleConfirm={handleEditConfirm} movie={film} />
     </div>
   )
 }

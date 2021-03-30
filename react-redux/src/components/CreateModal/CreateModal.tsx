@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Links } from '../../../mocksData/linkItems';
-import { InitialMovie } from '../../../mocksData/initialMovie'
-import './EditModal.css';
+import { InitialMovie } from '../../../mocksData/initialMovie';
+import './CreateModal.css';
 
-export default function EditModal(props) {
-  const { show, mode, movie } = props;
+export default function CreateModal(props) {
+  const { show, handleConfirm } = props;
+
   if (!show) {
     return null;
   }
 
-  const [currentMovie, setMovie] = useState(movie);
+  const [currentMovie, setMovie] = useState(InitialMovie);
 
   return (
     <div className="modal-edit" id="modal-edit">
@@ -19,15 +20,7 @@ export default function EditModal(props) {
           <span className="edit-close-sign" onClick={props.onClose}>x</span>
         </div>
         <div className="edit-body">
-          <h2>Edit movie</h2>
-          { mode && <label htmlFor="movie-id">Movie ID</label> }
-          { mode && <input
-            className="edit-input"
-            id="movie-id"
-            type='text'
-            value={currentMovie.id}
-            disabled
-          /> }
+          <h2>Add movie</h2>
           <label htmlFor="movie-title">Title</label>
           <input
             className="edit-input"
@@ -74,16 +67,15 @@ export default function EditModal(props) {
         </div>
         <div className="edit-footer">
           <button className='edit-reset-btn' type='reset' onClick={() => setMovie(InitialMovie)}>Reset</button>
-          <button className='edit-submit-btn' type='submit' onClick={props.handleConfirm}>Save</button>
+          <button className='edit-submit-btn' type='submit' onClick={handleConfirm}>Save</button>
         </div>
       </div>
     </div>
   );
 }
 
-EditModal.propTypes = {
+CreateModal.propTypes = {
   show: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  handleConfirm: PropTypes.func.isRequired,
-  movie: PropTypes.object
+  handleConfirm: PropTypes.func.isRequired
 }
