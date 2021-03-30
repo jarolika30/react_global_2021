@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import Modal from '../Modal';
 import DeleteModal from '../DeleteModal';
 import EditModal from '../EditModal';
-import { SUCCESS_STATUS_CODE } from '../../../mocksData/constants';
-import { deleteMovie } from '../../actions/delete-movie';
+import { deleteMovie } from '../../actions';
 import { getAllMovies } from '../../actions/get-all-movies.action';
 import './Card.scss';
 
@@ -53,13 +52,7 @@ export default function Card(props) {
 
   const handleConfirm = (event) => {
     event.preventDefault();
-
-    deleteMovie(film.id).then(res => {
-      if (res === SUCCESS_STATUS_CODE) {
-        dispatch(getAllMovies());
-      }
-    });  
-
+    dispatch(deleteMovie(film.id));
     setShowDeleteModal(false);
   }
 
