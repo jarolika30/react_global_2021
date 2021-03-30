@@ -14,11 +14,6 @@ ul {
   text-decoration: none;
 }
 
-.list-item a:active,
-.list-item a:focus {
-  border-bottom: 1px solid  #f65261;
-}
-
 .list-item a:hover {
   color: #dacfcf;
 }

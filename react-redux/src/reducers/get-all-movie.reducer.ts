@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import { getAllMovieAction, deleteMovieAction, createMovieAction, updateMovieAction } from '../actions';
+import { getAllMovieAction, deleteMovieAction, createMovieAction, updateMovieAction, filterByGanreAction } from '../actions';
 
 export const getAllMovieReducer = handleActions(
   {
