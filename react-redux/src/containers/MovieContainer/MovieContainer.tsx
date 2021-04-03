@@ -5,7 +5,10 @@ import Footer from '../Footer';
 import MainContainer from '../MainContainer';
 import { InitialMovie } from '../../../mocksData/initialMovie';
 import { getAllMovies } from '../../actions';
-import { getAllMoviesSelector, filterByGanreSelector } from '../../selectors';
+import { 
+  getAllMoviesSelector, 
+  filterByGanreSelector
+} from '../../selectors';
 
 import './MovieContainer.css';
 

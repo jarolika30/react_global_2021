@@ -1,5 +1,12 @@
 import { handleActions } from 'redux-actions';
-import { getAllMovieAction, deleteMovieAction, createMovieAction, updateMovieAction, filterByGanreAction } from '../actions';
+import { compareByField } from '../utils';
+import { 
+  getAllMovieAction, 
+  deleteMovieAction, 
+  createMovieAction, 
+  updateMovieAction,
+  sortByFieldAction
+ } from '../actions';
 
 export const getAllMovieReducer = handleActions(
   {
@@ -20,6 +27,11 @@ export const getAllMovieReducer = handleActions(
           return el
         } else return payload;
       });
+
+      return [...films];
+    },
+    [`${sortByFieldAction}`]: (state, { payload }) => {
+      const films = compareByField(state, payload);
 
       return [...films];
     }

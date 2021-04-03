@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { sortByFieldAction } from '../../actions';
 import DropdownIcon from '../../../assets/dropdown.svg';
 import { filterItems } from '../../../mocksData/filterBy';
 import './Filter.css';
 
 export default function Filter() {
+  const dispatch = useDispatch();
   const [optionsState, setOptionsState] = useState(filterItems[0]);
   const [showAllOptions, setShowAllOptions] = useState(false);
 
   const handleChange = (event) => {
-    console.log('value:', event.target.value);
     setOptionsState(event.target.value);
     setShowAllOptions(false);
+    dispatch(sortByFieldAction(event.target.value));
   }
 
   const handleShowAllOptions = (event) => {
@@ -18,10 +21,6 @@ export default function Filter() {
 
     setShowAllOptions(true);
   }
-
-  /* useEffect(() => {
-    setOptionsState(optionsState);
-  }, [optionsState]); */
 
   return (
     <div className="sort-wrap">

@@ -2,11 +2,13 @@ import { createAction } from 'redux-actions';
 import { Dispatch } from 'redux';
 import { apiHost, SUCCESS_CREATED_CODE, SUCCESS_STATUS_CODE } from '../../mocksData/constants';
 import { IMovie } from '../selectors/interfaces/IMovie';
+import { compareByRelease } from '../utils';
 
 export const getAllMovieAction = createAction('GET_ALL_MOVIE');
 export const deleteMovieAction = createAction('DELETE_MOVIE');
 export const createMovieAction = createAction('CREATE_MOVIE');
 export const updateMovieAction = createAction('UPDATE_MOVIE');
+export const sortByFieldAction = createAction('SORT_BY_FIELD');
 
 export const getAllMovies = () => (dispatch: Dispatch) => {
   const url = 'movies';
@@ -16,6 +18,7 @@ export const getAllMovies = () => (dispatch: Dispatch) => {
     .then(movieData => {
       const { data } = movieData;
 
+      data.sort(compareByRelease);
       dispatch(getAllMovieAction(data));
     })
     .catch(err => {
