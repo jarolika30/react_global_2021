@@ -74,6 +74,7 @@
 }
 
 .filter-select {
+  width: 420px;
   color: #ffffff;
   text-transform: uppercase;
   background: #424242;
