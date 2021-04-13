@@ -52,7 +52,7 @@ export default function EditModal(props) {
         >
          {({ setFieldValue, setValues }) => {
            return (
-              <div className="modal-edit-wrap">
+              <Form className="modal-edit-wrap">
                 <div className="edit-header">
                   <span className="edit-close-sign" onClick={props.onClose}>x</span>
                 </div>
@@ -130,9 +130,9 @@ export default function EditModal(props) {
                 </div>
                 <div className="edit-footer">
                   <button className="edit-reset-btn" onClick={() => setValues(resetValues)}>Reset</button>
-                  <button className="edit-submit-btn" type="submit" onClick={props.handleConfirm}>Save</button>
+                  <button className="edit-submit-btn" type="submit">Save</button>
                 </div>
-              </div>
+              </Form>
              );
             }}
           </Formik>

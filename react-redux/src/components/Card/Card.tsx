@@ -5,6 +5,7 @@ import Modal from '../Modal';
 import DeleteModal from '../DeleteModal';
 import EditModal from '../EditModal';
 import { deleteMovie, updateMovie } from '../../actions';
+import { Links } from '../../../mocksData/linkItems';
 import './Card.scss';
 
 export default function Card(props) {
@@ -55,9 +56,22 @@ export default function Card(props) {
     setShowDeleteModal(false);
   }
 
-  const handleEditConfirm = (event) => {
-    event.preventDefault();
-    dispatch(updateMovie(film));
+  const handleEditConfirm = (values) => {
+    const movie = {
+      id: values.id,
+      title: values.title,
+      tagline: values.tagline,
+      vote_average: values.vote_average,
+      vote_count: values.vote_count,
+      release_date: values.release_date,
+      poster_path: values.poster_path,
+      overview: values.overview,
+      budget: +values.budget,
+      runtime: +values.runtime,
+      genres: Links[values.genres] === 'All' ? Links : [Links[values.genres]],
+      revenue: values.revenue
+    }
+    dispatch(updateMovie(movie));
     setShowEditModal(false);
   }
 

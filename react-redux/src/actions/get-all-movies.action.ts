@@ -67,8 +67,7 @@ export const updateMovie = (movie: IMovie) => (dispatch: Dispatch) => {
     body: JSON.stringify(movie)
   })
     .then(res => {
-      console.log('res:', res);
-      if (res.status === SUCCESS_STATUS_CODE) dispatch(updateMovieAction(movie.id)); 
+      if (res.status === SUCCESS_STATUS_CODE) dispatch(updateMovieAction(movie)); 
     })
     .catch(error => error);
 }
