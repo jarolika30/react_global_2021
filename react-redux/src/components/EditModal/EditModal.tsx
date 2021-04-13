@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import { Links } from '../../../mocksData/linkItems';
 import './EditModal.css';
 
@@ -10,13 +11,13 @@ export default function EditModal(props) {
     id: movie.id,
     budget: movie.budget,
     genres: 0,
-    overview: movie.overview,
-    poster_path: movie.poster_path,
+    overview: movie.overview.length > 40 ? `${movie.overview.substring(0, 41)}...` : movie.overview,
+    poster_path: movie.poster_path.length > 40 ? `${movie.poster_path.substring(0, 41)}...` : movie.poster_path,
     release_date: movie.release_date,
     revenue: movie.revenue,
     runtime: movie.runtime,
-    tagline: movie.tagline,
-    title: movie.title,
+    tagline: movie.tagline.length > 40 ? `${movie.tagline.substring(0, 41)}...` : movie.tagline,
+    title: movie.title.length > 40 ? `${movie.title.substring(0, 41)}...` : movie.title,
     vote_average: movie.vote_average,
     vote_count: movie.vote_count
   }
@@ -48,6 +49,12 @@ export default function EditModal(props) {
     <div className="modal-edit" id="modal-edit">
       <Formik
           initialValues={formData}
+          validationSchema={Yup.object({
+            runtime: Yup.number().positive('Runtime must be positive').integer('Runtime must be integer'),
+            title: Yup.string()
+              .max(40, 'Title must be 40 characters or less')
+              .required('Required')
+          })}
           onSubmit={(values) => handleConfirm(values)}
         >
          {({ setFieldValue, setValues }) => {
@@ -74,7 +81,9 @@ export default function EditModal(props) {
                     type="text"
                     placeholder="e.g. Moana"
                     autoComplete="off"
+                    title={movie.title}
                   />
+                  <ErrorMessage name="title" />
                   <label htmlFor="release-date">Release Date</label>
                   <Field
                     className="edit-input"
@@ -91,6 +100,7 @@ export default function EditModal(props) {
                     type="url"
                     placeholder='e.g. moana.com'
                     autoComplete="off"
+                    title={movie.poster_path}
                   />
                   <label htmlFor="genres">Genre</label>
                   <Field id="genres" className="edit-input filter-select" name="genres" component="select" onChange={(e) => onChangeGenres(e, setFieldValue)}>
@@ -108,6 +118,7 @@ export default function EditModal(props) {
                     type="text"
                     placeholder="Type movie overview here"
                     autoComplete="off"
+                    title={movie.overview}
                   />
                   <label htmlFor="runtime">Runtime</label>
                   <Field
@@ -118,6 +129,7 @@ export default function EditModal(props) {
                     placeholder="Movie runtime"
                     autoComplete="off"
                   />
+                  <ErrorMessage name="runtime" />
                   <label htmlFor="tagline">Tagline</label>
                   <Field
                     className="edit-input"
@@ -126,6 +138,7 @@ export default function EditModal(props) {
                     type="text"
                     placeholder="Movie tagline"
                     autoComplete="off"
+                    title={movie.tagline}
                   />
                 </div>
                 <div className="edit-footer">

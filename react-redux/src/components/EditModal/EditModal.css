@@ -77,9 +77,11 @@
 }
 
 .filter-select {
+  font-family: 'Sans-Regular', Arial, sans-serif;
+  font-size: 16px;
   padding-left: 5px;
   width: 420px !important;
-  color: #ffffff;
+  color: #d8d7d7;
   text-transform: uppercase;
   background: #424242;
 }

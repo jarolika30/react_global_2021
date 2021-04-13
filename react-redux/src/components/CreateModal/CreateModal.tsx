@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import { Links } from '../../../mocksData/linkItems';
 import { InitialCreateMovie } from '../../../mocksData/initialCreateMovie';
 import './CreateModal.css';
@@ -21,6 +22,12 @@ export default function CreateModal(props) {
     <div className="modal-edit" id="modal-edit">
       <Formik
           initialValues={formData}
+          validationSchema={Yup.object({
+            runtime: Yup.number().positive('Runtime must be positive').integer('Runtime must be integer'),
+            title: Yup.string()
+              .max(40, 'Title must be 40 characters or less')
+              .required('Required')
+          })}
           onSubmit={(values) => handleConfirm(values)}
         >
          {({ setFieldValue }) => {
@@ -40,6 +47,7 @@ export default function CreateModal(props) {
                     placeholder='e.g. Moana'
                     autoComplete="off"
                   />
+                  <ErrorMessage name="title" />
                   <label htmlFor="release-date">Release Date</label>
                   <Field
                     className="edit-input"
@@ -82,6 +90,7 @@ export default function CreateModal(props) {
                     placeholder='Movie runtime'
                     autoComplete="off"
                   />
+                  <ErrorMessage name="runtime" />
                   <label htmlFor="tagline">Tagline</label>
                   <Field
                     className="edit-input"
