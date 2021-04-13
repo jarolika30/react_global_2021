@@ -1,0 +1,1 @@
+exports.filterItems = ['release date', 'genre', 'rating'];

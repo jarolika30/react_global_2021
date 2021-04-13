@@ -1,0 +1,19 @@
+ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item {
+  list-style-type: none;
+}
+
+.list-item a {
+  margin-right: 15px; 
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.list-item a:hover {
+  color: #dacfcf;
+}
