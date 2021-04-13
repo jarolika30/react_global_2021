@@ -36,36 +36,39 @@
 
 .edit-body {
   padding: 0 20px;
-  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-bottom: 0 !important;
 }
 
 .edit-body h2 {
+  margin: 0;
+  margin-bottom: 5px;
   text-align: left;
 }
 
 .edit-body label {
   color: #f65261;
   text-align: left;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .edit-input {
   background: #424242;
+  margin-bottom: 5px !important;
   margin-right: 10px;
   padding: 5px 10px;
   width: 400px;
   color: #d8d7d7;
   font-size: 16px;
-  margin-bottom: 15px;
   border: none;
   cursor: pointer;
 }
 
 .edit-input:disabled {
   background: #2b2a2a;
+  color: #6e6b6b;
   cursor: default;
 }
 
@@ -74,6 +77,8 @@
 }
 
 .filter-select {
+  padding-left: 5px;
+  width: 420px !important;
   color: #ffffff;
   text-transform: uppercase;
   background: #424242;
@@ -90,7 +95,7 @@
   text-decoration: none;
   color: #ffffff;
   text-transform: uppercase;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .edit-reset-btn {
@@ -103,7 +108,7 @@
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  margin-top: 20px;
+  margin-top: 10px;
   background: transparent;
   margin-right: 10px;
 }
@@ -111,5 +116,5 @@
 .edit-footer {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
